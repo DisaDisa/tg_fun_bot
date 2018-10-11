@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"telegram_bot/counter"
 	"telegram_bot/voter"
@@ -13,10 +14,11 @@ import (
 )
 
 func main() {
-	proxyAddres := ""
-	proxyUser := ""
-	proxyPassword := ""
-	botApi := ""
+	args := os.Args[1:]
+	proxyAddres := args[0]
+	proxyUser := args[1]
+	proxyPassword := args[2]
+	botApi := args[3]
 
 	httpTransport := &http.Transport{}
 	httpClient := &http.Client{Transport: httpTransport}
