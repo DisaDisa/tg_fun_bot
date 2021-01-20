@@ -5,8 +5,6 @@ import (
 	"sort"
 	"strconv"
 	"time"
-
-	"github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
 var (
@@ -69,7 +67,7 @@ func ActivateDayTop(ID int64, bot *tgbotapi.BotAPI) {
 			log.Println("Ticker: ", tickTime)
 			user, cnt_r := Top()
 			cnt = make(map[string]int)
-			reply := "Пидор дня: " + user + "\nC этим согласны " + strconv.Itoa(cnt_r) + " человек."
+			reply := "Выбор дня: " + user + "\nC этим согласны " + strconv.Itoa(cnt_r) + " человек."
 			msg := tgbotapi.NewMessage(ID, reply)
 			//msg.ReplyToMessageID = update.Message.MessageID
 			bot.Send(msg)
